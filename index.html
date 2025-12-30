@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MSM Pressure Washing | [City], BC</title>
+  <meta name="description" content="MSM Pressure Washing provides pressure washing and soft washing in [City], BC. Driveways, siding, patios, decks, gutters, and commercial cleaning. Fast quotes and reliable results." />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#101a33;
+      --text:#eaf0ff;
+      --muted:#b9c6ff;
+      --accent:#4fd1c5;
+      --accent2:#7aa7ff;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(1200px 700px at 70% 0%, rgba(122,167,255,.25), transparent 60%),
+                  radial-gradient(900px 600px at 20% 10%, rgba(79,209,197,.22), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.55);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      max-width:var(--max); margin:0 auto; padding:14px 18px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.2px;}
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 25px rgba(79,209,197,.25);
+    }
+    .brand small{display:block; font-size:12px; color:var(--muted); font-weight:700}
+    .navlinks{display:flex; gap:14px; flex-wrap:wrap}
+    .navlinks a{
+      text-decoration:none; color:var(--muted); font-weight:700; font-size:14px;
+      padding:8px 10px; border-radius:12px;
+    }
+    .navlinks a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .cta{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 14px; border-radius:14px; border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color:var(--text); text-decoration:none; font-weight:900; font-size:14px;
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow: var(--shadow)}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-color: transparent;
+      color:#07101f;
+    }
+
+    /* Hero */
+    .hero{
+      padding:44px 0 10px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){.hero{grid-template-columns:1fr}}
+    .card{background: rgba(16,26,51,.72); border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);}
+    .heroMain{padding:28px}
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--muted);
+      font-weight:800; font-size:13px;
+      background: rgba(255,255,255,.05);
+    }
+    h1{margin:14px 0 10px; font-size:44px; line-height:1.05}
+    @media (max-width: 520px){h1{font-size:36px}}
+    .lead{color:var(--muted); font-size:16px; max-width:58ch}
+    .heroBtns{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; color:var(--muted); font-weight:800; font-size:13px;}
+    .badge{padding:8px 12px; border-radius:999px; border:1px solid var(--border); background: rgba(255,255,255,.04);}
+
+    .heroSide{padding:18px}
+    .quoteBox{padding:18px}
+    .quoteBox h2{margin:0 0 8px; font-size:18px}
+    .quoteBox p{margin:0 0 14px; color:var(--muted); font-size:14px}
+    label{display:block; font-size:13px; color:var(--muted); font-weight:800; margin:10px 0 6px}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:92px; resize:vertical}
+    .small{font-size:12px; color:var(--muted); margin-top:10px}
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    @media (max-width:520px){.grid2{grid-template-columns:1fr}}
+
+    .section{padding:28px 0}
+    .section h2{font-size:28px; margin:0 0 10px}
+    .section p{color:var(--muted); margin:0 0 16px}
+
+    /* Services */
+    .services{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    @media (max-width: 900px){.services{grid-template-columns:1fr 1fr}}
+    @media (max-width: 560px){.services{grid-template-columns:1fr}}
+    .svc{padding:16px}
+    .svc h3{margin:4px 0 6px; font-size:16px}
+    .svc p{margin:0; color:var(--muted); font-size:14px}
+    .icon{width:38px; height:38px; border-radius:14px; display:grid; place-items:center; background: rgba(79,209,197,.12); border:1px solid rgba(79,209,197,.3); color: var(--accent); font-weight:900;}
+
+    /* Process + reviews */
+    .cols{display:grid; grid-template-columns: 1fr 1fr; gap:14px}
+    @media (max-width: 900px){.cols{grid-template-columns:1fr}}
+    .list{padding:16px}
+    .step{display:flex; gap:12px; padding:12px; border-radius:16px; border:1px solid var(--border); background: rgba(255,255,255,.03); margin-bottom:10px}
+    .num{width:30px; height:30px; border-radius:10px; display:grid; place-items:center; font-weight:900; background: rgba(122,167,255,.18); border:1px solid rgba(122,167,255,.35); color: var(--accent2); flex: 0 0 auto;}
+
+    /* FAQ */
+    details{border:1px solid var(--border); background: rgba(255,255,255,.03); border-radius:16px; padding:12px 14px; margin:10px 0;}
+    summary{cursor:pointer; font-weight:900}
+    details p{margin:10px 0 0; color:var(--muted)}
+
+    footer{border-top:1px solid var(--border); color:var(--muted); padding:22px 0 34px; font-size:13px;}
+    .footergrid{display:grid; grid-template-columns: 1.3fr .7fr; gap:14px; align-items:start;}
+    @media (max-width: 900px){.footergrid{grid-template-columns:1fr}}
+    .nowrap{white-space:nowrap}
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <div>MSM Pressure Washing</div>
+        <small>Pressure Washing • [City], BC</small>
+      </div>
+    </div>
+
+    <nav class="navlinks" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">How It Works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="cta">
+      <a class="btn" href="tel:+16045551234">Call</a>
+      <a class="btn primary" href="#contact">Free Quote</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="card heroMain">
+      <div class="kicker">✅ Insured • Fast Quotes • Reliable Results</div>
+      <h1>Pressure washing that makes your place look brand new.</h1>
+      <p class="lead">
+        Driveways, siding, patios, decks, gutters, and storefronts —
+        serving <strong>[City]</strong> and nearby areas with professional equipment and the right method for each surface.
+      </p>
+      <div class="heroBtns">
+        <a class="btn primary" href="#contact">Get a Free Estimate</a>
+        <a class="btn" href="sms:+16045551234?&body=Hi%20MSM%20Pressure%20Washing%2C%20can%20I%20get%20a%20quote%3F%20My%20address%20is%20____%20and%20I%20need%20help%20with%20____.">Text for a Quote</a>
+        <a class="btn" href="#services">View Services</a>
+      </div>
+      <div class="badges">
+        <div class="badge">✔ Soft-wash options</div>
+        <div class="badge">✔ Residential + Commercial</div>
+        <div class="badge">✔ Weekend availability</div>
+      </div>
+    </div>
+
+    <aside class="card heroSide" id="contact">
+      <div class="quoteBox">
+        <h2>Get a free quote</h2>
+        <p>Send details and we’ll reply ASAP with pricing and scheduling options.</p>
+
+        <form id="quoteForm">
+          <div class="grid2">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Matthew" required />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" placeholder="(604) 555-1234" required />
+            </div>
+          </div>
+
+          <label for="service">Service</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option>Driveway / Sidewalk</option>
+            <option>House Soft Wash</option>
+            <option>Patio / Pavers</option>
+            <option>Deck / Fence</option>
+            <option>Gutters / Fascia</option>
+            <option>Commercial</option>
+          </select>
+
+          <label for="details">Details</label>
+          <textarea id="details" name="details" placeholder="Address, approximate size, any stains, access notes, and ideal dates."></textarea>
+
+          <button class="btn primary" type="submit" style="width:100%; margin-top:12px;">Send Request</button>
+          <div class="small">Tip: add a couple photos when you text us for the fastest quote.</div>
+        </form>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section" id="services">
+    <h2>Services</h2>
+    <p>We use the right pressure and technique for the surface — including soft washing where needed.</p>
+
+    <div class="services">
+      <div class="card svc">
+        <div class="icon">D</div>
+        <h3>Driveways & Sidewalks</h3>
+        <p>Remove grime, algae, and seasonal buildup to boost curb appeal.</p>
+      </div>
+      <div class="card svc">
+        <div class="icon">H</div>
+        <h3>House Soft Wash</h3>
+        <p>A safer method for siding and delicate areas with better long-term results.</p>
+      </div>
+      <div class="card svc">
+        <div class="icon">P</div>
+        <h3>Patios & Pavers</h3>
+        <p>Refresh outdoor spaces for hosting, relaxing, and summer use.</p>
+      </div>
+      <div class="card svc">
+        <div class="icon">W</div>
+        <h3>Decks & Fences</h3>
+        <p>Careful cleaning for wood and composite to avoid damage.</p>
+      </div>
+      <div class="card svc">
+        <div class="icon">G</div>
+        <h3>Gutters & Fascia</h3>
+        <p>Reduce tiger stripes and improve the look of your roofline.</p>
+      </div>
+      <div class="card svc">
+        <div class="icon">C</div>
+        <h3>Commercial</h3>
+        <p>Storefronts, sidewalks, and entryways — keep your business sharp.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="cols">
+      <div class="card list">
+        <h2>How it works</h2>
+        <p>Simple, fast, and no confusion.</p>
+        <div class="step"><div class="num">1</div><div><strong>Request a quote</strong><div style="color:var(--muted); font-size:14px">Send photos or book an on-site estimate.</div></div></div>
+        <div class="step"><div class="num">2</div><div><strong>Pick a time</strong><div style="color:var(--muted); font-size:14px">We confirm pricing and schedule what works for you.</div></div></div>
+        <div class="step"><div class="num">3</div><div><strong>We clean</strong><div style="color:var(--muted); font-size:14px">Professional wash, tidy finish, and you’re set.</div></div></div>
+      </div>
+
+      <div class="card list" id="reviews">
+        <h2>Reviews</h2>
+        <p>Swap these with real ones as you get them.</p>
+        <div class="step"><div class="num">★</div><div><strong>“Night and day difference.”</strong><div style="color:var(--muted); font-size:14px">Driveway looked new again. Super easy to book.</div></div></div>
+        <div class="step"><div class="num">★</div><div><strong>“Fast quote, great result.”</strong><div style="color:var(--muted); font-size:14px">Arrived on time and cleaned up after.</div></div></div>
+        <div class="step"><div class="num">★</div><div><strong>“Worth it.”</strong><div style="color:var(--muted); font-size:14px">Patio + steps came out amazing.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <h2>FAQ</h2>
+    <details>
+      <summary>How do you price jobs?</summary>
+      <p>Usually based on size, surface type, and how dirty it is. Photos help a lot for accurate quotes.</p>
+    </details>
+    <details>
+      <summary>Will pressure washing damage my home?</summary>
+      <p>If done wrong, it can. That’s why we use surface-appropriate pressure and soft washing where needed.</p>
+    </details>
+    <details>
+      <summary>How long does it take?</summary>
+      <p>Most residential jobs take 1–3 hours depending on what you’re cleaning.</p>
+    </details>
+    <details>
+      <summary>Do I need to be home?</summary>
+      <p>Not always — as long as we have water access and the work area is clear.</p>
+    </details>
+  </section>
+
+  <section class="section">
+    <div class="card" style="padding:18px">
+      <h2>Service area</h2>
+      <p><strong>[City]</strong>, plus nearby neighborhoods. If you’re unsure, message us and we’ll confirm.</p>
+      <div class="badges">
+        <div class="badge nowrap">Hours: Mon–Sun • 8am–8pm</div>
+        <div class="badge nowrap">Phone: (604) 555-1234</div>
+        <div class="badge nowrap">Email: hello@msmpressurewashing.ca</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footergrid">
+      <div>
+        <div style="font-weight:900; color:var(--text)">MSM Pressure Washing</div>
+        <div>Insured • Surface-safe methods • Serving [City], BC</div>
+        <div class="small">© <span id="year"></span> MSM Pressure Washing. All rights reserved.</div>
+      </div>
+      <div>
+        <div style="font-weight:900; color:var(--text)">Quick links</div>
+        <div style="margin-top:8px; display:grid; gap:6px">
+          <a href="#services">Services</a>
+          <a href="#process">How it works</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Get a quote</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Quote form: opens the user's email client (simple + free).
+  // Swap this later for Formspree, Netlify Forms, or a backend.
+  document.getElementById("quoteForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const service = document.getElementById("service").value;
+    const details = document.getElementById("details").value.trim();
+
+    const subject = encodeURIComponent("Quote Request - MSM Pressure Washing");
+    const body = encodeURIComponent(
+      `Name: ${name}\nPhone: ${phone}\nService: ${service}\n\nDetails:\n${details}\n\n(Please attach photos if possible.)`
+    );
+
+    // Change this email:
+    window.location.href = `mailto:hello@msmpressurewashing.ca?subject=${subject}&body=${body}`;
+  });
+</script>
+</body>
+</html>
