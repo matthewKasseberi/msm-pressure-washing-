@@ -141,6 +141,22 @@
     .footergrid{display:grid; grid-template-columns: 1.3fr .7fr; gap:14px; align-items:start;}
     @media (max-width: 900px){.footergrid{grid-template-columns:1fr}}
     .nowrap{white-space:nowrap}
+
+    /* Before & After */
+    .baGrid{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+    @media (max-width: 900px){.baGrid{grid-template-columns:1fr 1fr}}
+    @media (max-width: 560px){.baGrid{grid-template-columns:1fr}}
+    .baCard{padding:14px}
+    .baTop{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px}
+    .tag{font-size:12px; font-weight:900; color:var(--muted); border:1px solid var(--border); background:rgba(255,255,255,.04); padding:6px 10px; border-radius:999px}
+
+    /* Slider */
+    .slider{position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--border); background:#0f1730}
+    .slider img{width:100%; height:220px; object-fit:cover; display:block}
+    .slider .after{position:absolute; inset:0; width:50%; overflow:hidden}
+    .slider .handle{position:absolute; top:0; left:50%; transform:translateX(-50%); height:100%; width:3px; background:#fff; cursor:ew-resize}
+    .slider .handle::before{content:"↔"; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; color:#000; font-weight:900; padding:6px 8px; border-radius:999px}
+    .caption{margin-top:10px; color:var(--muted); font-size:13px}
   </style>
 </head>
 <body>
@@ -156,6 +172,7 @@
 
     <nav class="navlinks" aria-label="Primary">
       <a href="#services">Services</a>
+      <a href="#before-after">Before &amp; After</a>
       <a href="#process">How It Works</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
@@ -266,6 +283,58 @@
     </div>
   </section>
 
+  <section class="section" id="before-after">
+    <h2>Before &amp; After</h2>
+    <p>Drag the slider to see the difference. These will automatically work once you add your real photos.</p>
+
+    <div class="baGrid">
+      <div class="card baCard">
+        <div class="baTop">
+          <strong>Driveway Wash</strong>
+          <span class="tag">Burnaby / Vancouver</span>
+        </div>
+        <div class="slider" data-slider>
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" alt="Driveway before pressure washing">
+          <div class="after">
+            <img src="https://images.unsplash.com/photo-1600585154154-7125b0c2f2d4?q=80&w=1200&auto=format&fit=crop" alt="Driveway after pressure washing">
+          </div>
+          <div class="handle"></div>
+        </div>
+        <div class="caption">Deep cleaning removes grime, algae, and staining for instant curb appeal.</div>
+      </div>
+
+      <div class="card baCard">
+        <div class="baTop">
+          <strong>Patio / Pavers</strong>
+          <span class="tag">Outdoor Refresh</span>
+        </div>
+        <div class="slider" data-slider>
+          <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?q=80&w=1200&auto=format&fit=crop" alt="Patio before cleaning">
+          <div class="after">
+            <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?q=80&w=1200&auto=format&fit=crop" alt="Patio after cleaning">
+          </div>
+          <div class="handle"></div>
+        </div>
+        <div class="caption">Perfect for patios and walkways before summer and hosting.</div>
+      </div>
+
+      <div class="card baCard">
+        <div class="baTop">
+          <strong>House Soft Wash</strong>
+          <span class="tag">Surface-safe</span>
+        </div>
+        <div class="slider" data-slider>
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1200&auto=format&fit=crop" alt="House before soft wash">
+          <div class="after">
+            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1200&auto=format&fit=crop" alt="House after soft wash">
+          </div>
+          <div class="handle"></div>
+        </div>
+        <div class="caption">Soft washing safely restores siding without high pressure.</div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="process">
     <div class="cols">
       <div class="card list">
@@ -340,8 +409,7 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Quote form: opens the user's email client (simple + free).
-  // Swap this later for Formspree, Netlify Forms, or a backend.
+  // Quote form
   document.getElementById("quoteForm").addEventListener("submit", function(e){
     e.preventDefault();
     const name = document.getElementById("name").value.trim();
@@ -351,11 +419,32 @@
 
     const subject = encodeURIComponent("Quote Request - MSM Pressure Washing");
     const body = encodeURIComponent(
-      `Name: ${name}\nPhone: ${phone}\nService: ${service}\n\nDetails:\n${details}\n\n(Please attach photos if possible.)`
+      `Name: ${name}
+Phone: ${phone}
+Service: ${service}
+
+Details:
+${details}`
     );
 
-    // Change this email:
     window.location.href = `mailto:msmpressure@gmail.com?subject=${subject}&body=${body}`;
+  });
+
+  // Before & After sliders
+  document.querySelectorAll('[data-slider]').forEach(slider => {
+    const after = slider.querySelector('.after');
+    const handle = slider.querySelector('.handle');
+
+    const move = x => {
+      const rect = slider.getBoundingClientRect();
+      let pos = Math.max(0, Math.min(x - rect.left, rect.width));
+      const percent = (pos / rect.width) * 100;
+      after.style.width = percent + '%';
+      handle.style.left = percent + '%';
+    };
+
+    slider.addEventListener('mousemove', e => move(e.clientX));
+    slider.addEventListener('touchmove', e => move(e.touches[0].clientX));
   });
 </script>
 </body>
